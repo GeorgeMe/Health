@@ -29,7 +29,6 @@ dependencies {
     compile 'com.github.satyan:sugar:1.5'
     compile 'com.squareup.retrofit2:retrofit:2.0.2'
     compile 'com.squareup.retrofit2:converter-gson:2.0.2'
-    compile 'com.android.support:design:24.1.0'
     compile project(':ui')
     compile project(':thirdparty')
 }

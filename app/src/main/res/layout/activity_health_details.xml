@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll_health_details"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.is.health.ui.activitys.HealthDetailsActivity">
+    <!--<include layout="@layout/common_toolbar"/>-->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp">
+                <ImageView
+                    android:scaleType="fitXY"
+                    android:id="@+id/img_health_details"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp" />
+
+            </FrameLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <View
+                    android:background="@color/black_5a626d"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"/>
+
+                <LinearLayout
+                    android:layout_margin="10dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/tv_health_details_title"
+                        android:text="汉子"
+                        android:textColor="#FF000000"
+                        android:textSize="@dimen/big_large_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_gravity="center_horizontal"
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:layout_marginRight="4dp"
+                        android:orientation="horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:text="发布时间："
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                        <TextView
+                            android:id="@+id/tv_release_time"
+                            android:text="2016-02-21 00:12:12"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_marginLeft="4dp"
+                        android:orientation="horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:text="阅读量："
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                        <TextView
+                            android:id="@+id/tv_reading_quantity"
+                            android:text="854"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_margin="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="汉子"
+                    android:id="@+id/tv_health_details_message"
+                    android:layout_gravity="center_horizontal" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

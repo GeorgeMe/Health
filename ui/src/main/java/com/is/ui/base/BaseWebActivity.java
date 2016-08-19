@@ -5,6 +5,7 @@ import android.support.v7.widget.Toolbar;
 
 import com.is.common.CommonUtils;
 import com.is.ui.R;
+import com.is.ui.eventbus.EventCenter;
 import com.is.ui.netstatus.NetUtils;
 import com.is.ui.widget.BrowserLayout;
 
@@ -80,5 +81,25 @@ public class BaseWebActivity extends BaseSwipeBackCompatActivity {
     @Override
     protected void onNetworkDisConnected() {
 
+    }
+
+    @Override
+    protected void onEventComming(EventCenter eventCenter) {
+
+    }
+
+    @Override
+    protected boolean isApplyStatusBarTranslucency() {
+        return false;
+    }
+
+    @Override
+    protected boolean isBindEventBusHere() {
+        return false;
+    }
+
+    @Override
+    protected boolean toggleOverridePendingTransition() {
+        return false;
     }
 }
