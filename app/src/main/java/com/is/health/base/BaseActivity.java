@@ -23,6 +23,7 @@ public abstract class BaseActivity extends BaseAppCompatActivity implements Base
         super.setContentView(layoutResID);
         mToolbar = ButterKnife.findById(this, R.id.common_toolbar);
         if (null != mToolbar) {
+
             setSupportActionBar(mToolbar);
             getSupportActionBar().setHomeButtonEnabled(true);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);

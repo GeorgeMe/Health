@@ -151,6 +151,7 @@ public abstract class BaseFragmentActivity extends FragmentActivity {
             }
         }
         super.onCreate(savedInstanceState);
+
         // base setup
         //获取bundle
         Bundle extras = getIntent().getExtras();

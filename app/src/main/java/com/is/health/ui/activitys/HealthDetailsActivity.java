@@ -44,6 +44,7 @@ public class HealthDetailsActivity extends BaseActivity implements HealthDetails
     private HealthInfo healthInfo = null;
     private HealthDetailsPresenterImpl healthDetailsPresenter;
 
+
     @Override
     protected void getBundleExtras(Bundle extras) {
         healthInfo = (HealthInfo) extras.getSerializable("healthInfo");
@@ -90,7 +91,6 @@ public class HealthDetailsActivity extends BaseActivity implements HealthDetails
     @Override
     public void onHealthDetails(HealthInfoDetails details) {
         if (details != null) {
-           // mToolbar.setTitle(details.getTitle());
             Picasso.with(mContext).load(SeeConstant.BASE_IMG_URL + details.getImg()).into(imgHealthDetails);
             tvHealthDetailsTitle.setText(details.getTitle());
             tvReleaseTime.setText(sdf.format(new Date(details.getTime())));

@@ -10,19 +10,19 @@ import com.is.common.XmlDB;
 import com.is.health.SeeConstant;
 import com.is.health.api.SeeApi;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.URLEncoder;
 import java.util.concurrent.TimeUnit;
 
-import okhttp3.Cache;
 import okhttp3.CacheControl;
 import okhttp3.HttpUrl;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
@@ -30,11 +30,15 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 public class Retrofit2See {
 
-    protected String baseUrl="http://apis.baidu.com/tngou/info/";
+   // protected String baseUrl="http://apis.baidu.com/tngou/info/";
+    protected String baseUrl="http://192.168.0.107:8080/Spring_upload/";
     protected Retrofit retrofit;
     protected SeeApi seeApi;
     private static  Context mContext = null;
-
+    static {
+        HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
+        logging.setLevel(HttpLoggingInterceptor.Level.BODY);
+    }
     public Retrofit2See(Context context) {
         mContext = context;
         if (retrofit==null) {
@@ -42,21 +46,23 @@ public class Retrofit2See {
             /**
              * 设置Cookie
              */
-            builder.addInterceptor(addCookieInterceptor());
+          //  builder.addInterceptor(addCookieInterceptor());
             /**
              * 设置头
              */
-            builder.addInterceptor(addHeaderInterceptor());
+          //  builder.addInterceptor(addHeaderInterceptor());
             /**
              * 设置公共参数
              */
-            builder.addInterceptor(addQueryParameterInterceptor());
+          //  builder.addInterceptor(addQueryParameterInterceptor());
             /**
              * 设置缓存
              */
-            File cacheFile = new File(mContext.getExternalCacheDir(), "RetrofitCache");
-            Cache cache = new Cache(cacheFile, 1024 * 1024 * 50);
-            builder.cache(cache).addInterceptor(addCacheInterceptor());
+
+           // File cacheFile = new File(mContext.getExternalCacheDir(), "RetrofitCache");
+            //Cache cache = new Cache(cacheFile, 1024 * 1024 * 50);
+           // builder.cache(cache).addInterceptor(addCacheInterceptor());
+
             /**
              * 设置超时
              */
@@ -74,19 +80,20 @@ public class Retrofit2See {
             retrofit = new Retrofit.Builder()
                     .baseUrl(baseUrl)
                     .addConverterFactory(GsonConverterFactory.create())
+                    .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                     .client(client)
                     .build();
         }
         seeApi = retrofit.create(SeeApi.class);
     }
 
-   /* public String getBaseUrl() {
+    public String getBaseUrl() {
         return baseUrl;
     }
 
     public void setBaseUrl(String baseUrl) {
         this.baseUrl = baseUrl;
-    }*/
+    }
 
     /**
      * 设置Cookie
