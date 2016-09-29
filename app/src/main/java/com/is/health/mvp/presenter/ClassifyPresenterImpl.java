@@ -26,7 +26,10 @@ public class ClassifyPresenterImpl implements BaseSingleLoadedListener<ClassifyR
     }
     @Override
     public void onSuccess(ClassifyResponse data) {
-        classifyView.onClassifyList(data.getTngou());
+        if(data.getTngou()!=null){
+            classifyView.onClassifyList(data.getTngou());
+        }
+
     }
 
     @Override

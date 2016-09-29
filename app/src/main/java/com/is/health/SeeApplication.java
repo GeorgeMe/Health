@@ -1,16 +1,15 @@
 package com.is.health;
 
-import com.is.health.sugar.SugarDBHelper;
-import com.orm.SugarApp;
+import android.app.Application;
+
 
 /**
  * Created by George on 2016/5/22.
  */
-public class SeeApplication extends SugarApp {
+public class SeeApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        SugarDBHelper.getInstance().initDB(this.getApplicationContext());
     }
 
     @Override
