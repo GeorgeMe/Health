@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,17 +19,17 @@ import com.is.ui.netstatus.NetChangeObserver;
 import com.is.ui.netstatus.NetStateReceiver;
 import com.is.ui.netstatus.NetUtils;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
+import com.zhy.autolayout.AutoLayoutActivity;
 
 import butterknife.ButterKnife;
 
 
-public abstract class BaseAppCompatActivity extends AppCompatActivity {
+public abstract class BaseAppCompatActivity extends AutoLayoutActivity {
 
     /**
      * Log tag
      */
     protected static String TAG_LOG = null;
-
     /**
      * Screen information
      */
@@ -56,10 +55,10 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity {
     }
 
 
-
     /**
      * get bundle data
      * 获取绑定数据
+     *
      * @param extras
      */
     protected abstract void getBundleExtras(Bundle extras);
@@ -67,6 +66,7 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity {
     /**
      * bind layout resource file
      * 绑定布局文件
+     *
      * @return id of layout resource
      */
     protected abstract int getContentViewLayoutID();
@@ -74,13 +74,14 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity {
     /**
      * when event comming
      * 事件来了
+     *
      * @param eventCenter
      */
     protected abstract void onEventComming(EventCenter eventCenter);
 
     /**
      * init all views and add events
-     *
+     * <p>
      * 初始化视图和事件
      */
     protected abstract void initViewsAndEvents();
@@ -100,6 +101,7 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity {
     /**
      * is applyStatusBarTranslucency
      * 是否应用状态栏透明
+     *
      * @return
      */
     protected abstract boolean isApplyStatusBarTranslucency();
@@ -107,6 +109,7 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity {
     /**
      * is bind eventBus
      * 是否绑定事件
+     *
      * @return
      */
     protected abstract boolean isBindEventBusHere();
@@ -114,13 +117,14 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity {
     /**
      * toggle overridePendingTransition
      * 是否开启activity动画切换
+     *
      * @return
      */
     protected abstract boolean toggleOverridePendingTransition();
 
     /**
      * get the overridePendingTransition mode
-     *  设置获取动画模式
+     * 设置获取动画模式
      */
     protected abstract TransitionMode getOverridePendingTransitionMode();
 
@@ -133,19 +137,19 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity {
                     overridePendingTransition(R.anim.left_in, R.anim.left_out);
                     break;
                 case RIGHT:
-                    overridePendingTransition(R.anim.right_in,R.anim.right_out);
+                    overridePendingTransition(R.anim.right_in, R.anim.right_out);
                     break;
                 case TOP:
-                    overridePendingTransition(R.anim.top_in,R.anim.top_out);
+                    overridePendingTransition(R.anim.top_in, R.anim.top_out);
                     break;
                 case BOTTOM:
-                    overridePendingTransition(R.anim.bottom_in,R.anim.bottom_out);
+                    overridePendingTransition(R.anim.bottom_in, R.anim.bottom_out);
                     break;
                 case SCALE:
-                    overridePendingTransition(R.anim.scale_in,R.anim.scale_out);
+                    overridePendingTransition(R.anim.scale_in, R.anim.scale_out);
                     break;
                 case FADE:
-                    overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
+                    overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                     break;
             }
         }
@@ -226,22 +230,22 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity {
         if (toggleOverridePendingTransition()) {
             switch (getOverridePendingTransitionMode()) {
                 case LEFT:
-                    overridePendingTransition(R.anim.left_in,R.anim.left_out);
+                    overridePendingTransition(R.anim.left_in, R.anim.left_out);
                     break;
                 case RIGHT:
-                    overridePendingTransition(R.anim.right_in,R.anim.right_out);
+                    overridePendingTransition(R.anim.right_in, R.anim.right_out);
                     break;
                 case TOP:
-                    overridePendingTransition(R.anim.top_in,R.anim.top_out);
+                    overridePendingTransition(R.anim.top_in, R.anim.top_out);
                     break;
                 case BOTTOM:
-                    overridePendingTransition(R.anim.bottom_in,R.anim.bottom_out);
+                    overridePendingTransition(R.anim.bottom_in, R.anim.bottom_out);
                     break;
                 case SCALE:
-                    overridePendingTransition(R.anim.scale_in,R.anim.scale_out);
+                    overridePendingTransition(R.anim.scale_in, R.anim.scale_out);
                     break;
                 case FADE:
-                    overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
+                    overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                     break;
             }
         }
@@ -360,10 +364,11 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity {
 
     /**
      * 实现和导航栏和状态栏的透明
+     *
      * @param view
      * @param color
      */
-    protected void setSystemBarTint(View view, int color){
+    protected void setSystemBarTint(View view, int color) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             setTranslucentStatus(true);
             SystemBarTintManager tintManager = new SystemBarTintManager(this);
@@ -377,6 +382,7 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity {
     /**
      * set status bar translucency
      * 设置半透明状态
+     *
      * @param on
      */
     protected void setTranslucentStatus(boolean on) {

@@ -6,96 +6,113 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.is.health.ui.activitys.HealthDetailsActivity">
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <LinearLayout
-            android:orientation="vertical"
+
+        <com.zhy.autolayout.AutoLinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="200dp">
+
                 <ImageView
-                    android:scaleType="fitXY"
                     android:id="@+id/img_health_details"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp" />
+                    android:layout_height="200dp"
+                    android:scaleType="fitXY" />
 
             </FrameLayout>
-            <LinearLayout
-                android:orientation="vertical"
+
+            <com.zhy.autolayout.AutoLinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
                 <View
-                    android:background="@color/black_5a626d"
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"/>
+                    android:layout_height="1dp"
+                    android:background="@color/black_5a626d" />
 
                 <LinearLayout
-                    android:layout_margin="10dp"
-                    android:layout_gravity="center_horizontal"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp">
+
                     <TextView
                         android:id="@+id/tv_health_details_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:text="汉子"
                         android:textColor="#FF000000"
-                        android:textSize="@dimen/big_large_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:textSize="38px" />
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:layout_gravity="center_horizontal"
-                    android:orientation="horizontal"
+                <com.zhy.autolayout.AutoLinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
                     <LinearLayout
-                        android:layout_marginRight="4dp"
-                        android:orientation="horizontal"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="4dp"
+                        android:orientation="horizontal">
+
                         <TextView
-                            android:text="发布时间："
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
+                            android:layout_height="wrap_content"
+                            android:text="发布时间："
+                            android:textSize="20px" />
+
                         <TextView
                             android:id="@+id/tv_release_time"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:text="2016-02-21 00:12:12"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
+                            android:textSize="20px" />
                     </LinearLayout>
+
                     <LinearLayout
-                        android:layout_marginLeft="4dp"
-                        android:orientation="horizontal"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="4dp"
+                        android:orientation="horizontal">
+
                         <TextView
-                            android:text="阅读量："
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
+                            android:layout_height="wrap_content"
+                            android:text="阅读量："
+                            android:textSize="20px" />
+
                         <TextView
                             android:id="@+id/tv_reading_quantity"
-                            android:text="854"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
+                            android:layout_height="wrap_content"
+                            android:text="854"
+                            android:textSize="20px" />
                     </LinearLayout>
-                </LinearLayout>
+                </com.zhy.autolayout.AutoLinearLayout>
 
                 <TextView
-                    android:layout_margin="8dp"
+                    android:id="@+id/tv_health_details_message"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="20px"
                     android:text="汉子"
-                    android:id="@+id/tv_health_details_message"
-                    android:layout_gravity="center_horizontal" />
-            </LinearLayout>
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="32px" />
+            </com.zhy.autolayout.AutoLinearLayout>
 
-        </LinearLayout>
+        </com.zhy.autolayout.AutoLinearLayout>
     </ScrollView>
 </LinearLayout>
